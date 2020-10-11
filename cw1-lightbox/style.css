@@ -1,11 +1,24 @@
 body{
     background:coral;
+    margin: 0;
 }
 
 .scale{
     transform: scale(2);
 }
-
+.gallery{
+    width: 80%;
+    margin: 50px auto 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+}
+.gallery img{
+    width: 400px;
+    height: 200px;
+    margin: 0 auto 0 auto;
+    border: 2px solid pink;
+}
 .lightbox{
     position: absolute;
     z-index: 100;
@@ -26,4 +39,14 @@ body{
 .lightbox img{
     max-width: 80%;
     max-height: 80%;
+}
+
+.prev, .next{
+    background: red;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
 }

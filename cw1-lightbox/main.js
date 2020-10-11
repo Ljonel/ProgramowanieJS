@@ -1,24 +1,36 @@
-let gallery = document.querySelectorAll(".gallery img");
-let prev = document.querySelector(".prev");
-let next = document.querySelector(".next");
-
+let gallery = document.querySelectorAll('.gallery img');
 const lightbox = document.querySelector('.lightbox');
 
-const galleryCount = gallery.length;
+const lightboxImg = document.querySelector('.lightbox img');
 
-for(let i=0; i<gallery.length; i++){
-    const img = gallery[i];
-    img.addEventListener('click', showLightbox);
+const prev = document.querySelector('.prev')
+const next = document.querySelector('.next')
+
+gallery.forEach(element => {
+    element.addEventListener('click', function(){
+        lightboxImg.src = element.src;
+        lightbox.classList.add('visible');
+
+        next.addEventListener('click', () =>{
+            if(element.nextElementSibling != null){
+                lightboxImg.src = element.nextElementSibling.src;
+                element = element.nextElementSibling;
+            }
+        })
+
+        prev.addEventListener('click', () =>{
+            if(element.previousElementSibling != null){
+                lightboxImg.src = element.previousElementSibling.src;
+                element = element.previousElementSibling;
+            }
+        })
+    })
+});
+
+
+function hideLightbox(e){
+    if(e.target !== e.currentTarget) return;
+    lightbox.classList.remove('visible');
 }
 
-function showLightbox(e){
-    console.log(e.target)
-    const img = document.querySelector(".lightbox img");
-    const imgUrl = e.target.src;
-    img.src = imgUrl;
-    lightbox.classList.add("visible");
-}
-
-lightbox.addEventListener("click", function(){
-    this.classList.remove("visible");
-})
+lightbox.addEventListener('click', hideLightbox)
