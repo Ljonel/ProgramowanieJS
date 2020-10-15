@@ -1,8 +1,6 @@
 let gallery = document.querySelectorAll('.gallery img');
 const lightbox = document.querySelector('.lightbox');
-
 const lightboxImg = document.querySelector('.lightbox img');
-
 const prev = document.querySelector('.prev')
 const next = document.querySelector('.next')
 
