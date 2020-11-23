@@ -5,3 +5,9 @@ body{
     height: 100vh;
     background: lightgrey;
 }
+p{
+    position: absolute;
+    width: 100vw;
+    text-align: center;
+    font-size: 25px
+}
