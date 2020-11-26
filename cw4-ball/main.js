@@ -79,9 +79,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
     }
 
-    window.addEventListener("mousemove", function (e) {
-        console.log(e.clientX, e.clientY)
-    })
+    // window.addEventListener("mousemove", function (e) {
+    //     console.log(e.clientX, e.clientY)
+    // })
 
     function checkWin() {
 
@@ -91,7 +91,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
             color
         }) => {
             if (color === "green" && ball.x - ball.r >= x - hole.r && ball.x + ball.r <= x + hole.r && ball.y >= y - hole.r && ball.y + ball.r <= y + hole.r) {
-                alert("YOU WIN")
+                const timeOut = document.querySelector(".timer").innerHTML;
+
+                alert("YOU WIN BY  -> "  + timeOut + " s")
                 playable=false;
                 ball.speedX = 0;
                 ball.speedY = 0;
@@ -99,8 +101,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 document.querySelector('.timer').innerHTML = "00:00:00";
 
             } else if (color === "red" && ball.x >= x && ball.y >= y && ball.y <= y + hole.r * 2 && ball.x <= x + hole.r * 2) {
-                alert("YOU LOSE")
-                playable=false
+                const timeOut = document.querySelector(".timer").innerHTML;
+                alert("YOU LOSE BY -> "  + timeOut + " s")
+                playable=false;
                 ball.speedX = 0;
                 ball.speedY = 0;
                 ball.x = 0;
@@ -118,8 +121,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
         var y = event.beta; // In degree in the range [-90,90]
         let xMove = x * 0.1;
         let yMove = y * 0.1;
-        console.log(x, y)
-        console.log(xMove, yMove)
+        //console.log(x, y)
+        console.log(Math.round(xMove), Math.round(yMove));
 
         // Because we don't want to have the device upside down
         // We constrain the x value to the range [-90,90]
@@ -146,7 +149,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     }
 
     function startTimer() {
-        console.log("clock")
+        //console.log("clock")
         const timer = document.querySelector('.timer').innerHTML;
         const arr = timer.split(":");
         let hours = arr[0];
