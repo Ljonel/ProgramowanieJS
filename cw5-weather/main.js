@@ -20,20 +20,29 @@ btn.addEventListener("click", function(){
         _temp = data['main']['temp'];
         _desc = data['weather'][0]['main'];
        // console.log(data);
-        name.innerHTML = _name;
-        temp.innerHTML = _temp;
-        desc.innerHTML = _desc;
-        
-        const note = {
-            name: 'default',
-            temperature: 0,
-            description: 'default'
-        }
+       const note = {
+        name: 'default',
+        temperature: 0,
+        description: 'default'
+    }
+
       note.name = _name;
       note.temp = _temp;
       note.desc = _desc;
       notes.push(note);
       console.log(notes)
+      
+      const template = document.querySelector("#template");
+      template.content.querySelector('.name').textContent = note.name;
+      template.content.querySelector('.description').textContent = note.desc;
+      template.content.querySelector('.temp').textContent = note.temp;
+      const main = document.querySelector('main');
+      let clone = document.importNode(template.content, true); // where true means deep copy
+      main.appendChild(clone);
+
+      
+    
+
     })
    
 
