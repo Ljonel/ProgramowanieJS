@@ -4,7 +4,7 @@ const name = document.querySelector(".name");
 const desc = document.querySelector(".description");
 const temp = document.querySelector(".temp");
 
-let notes = [];
+showNotes();
 
 
 inputValue.addEventListener("keyup", function (e) {
@@ -25,11 +25,11 @@ btn.addEventListener("click", function () {
                     temperature: data['main']['temp'],
                     description: data['weather'][0]['main']
                 }
-               
-               const items = JSON.parse(localStorage.getItem("weather-el")) || [];
-               const newNotes = [...items,note];
-               localStorage.setItem("weather-el", JSON.stringify(newNotes))
-               showNotes();
+
+                const items = JSON.parse(localStorage.getItem("weather-el")) || [];
+                const newNotes = [...items, note];
+                localStorage.setItem("weather-el", JSON.stringify(newNotes))
+                showNotes();
                 //console.log(JSON.parse(localStorage.getItem("weather-el")))
 
             })
@@ -37,24 +37,36 @@ btn.addEventListener("click", function () {
 })
 
 
-function showNotes(el){
-        const template = document.querySelector("#template");
-        if(el.desc == "Clear"){
+function showNotes() {
+    const item = JSON.parse(localStorage.getItem("weather-el"));
+
+   if(item){
+       document.querySelector("main").innerHTML =""
+    const template = document.querySelector("#template");
+
+    item.forEach((element) => {
+        if (element.description == "Clear") {
             template.content.getElementById("bg").className = "sunny";
-        }
-        else if(el.desc  == "Clouds"){
+        } else if (element.description == "Clouds") {
             template.content.getElementById("bg").className = "clouds"
-        }else if(el.desc  == "Snow"){
+        } else if (element.description == "Snow") {
             template.content.getElementById("bg").className = "snow"
-        }if(el.desc  == "Rain"){
+        }else if (element.description == "Rain") {
             template.content.getElementById("bg").className = "rain"
+        }else if (element.description == "Fog") {
+            template.content.getElementById("bg").className = "fog"
         }
-        template.content.querySelector('.name').textContent = el.name;
-        template.content.querySelector('.description').textContent = el.desc;
-        template.content.querySelector('.temp').textContent = el.temp + '°C';
+    
+        template.content.querySelector('a').href = "https://pl.wikipedia.org/wiki/"+element.name;
+        template.content.querySelector('.name').textContent = element.name;
+        template.content.querySelector('.description').textContent = element.description;
+        template.content.querySelector('.temp').textContent = element.temperature + '°C';
+        
         const main = document.querySelector('main');
         let clone = document.importNode(template.content, true); // where true means deep copy
         main.appendChild(clone);
+    });
+}
 }
 
 

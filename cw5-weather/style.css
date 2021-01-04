@@ -8,6 +8,7 @@ body{
     background-image: url("img/bg.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 header{
@@ -46,6 +47,16 @@ main{
     margin: 5px;
     border-radius: 14px;
     background: white;
+    transition: 200ms;
+
+}
+.container:hover{
+    transform: scale(1.1);
+}
+a{
+    text-decoration: none;
+    text-decoration-style: none;
+    color: black;
 }
 #bg{
     width: 100%;
@@ -71,4 +82,9 @@ main{
     background-image: url("img/rain.png");
     background-repeat: no-repeat;
     margin-left: -2px;
+}
+.fog{
+    background-image: url("img/fog.png");
+   background-size: contain;
+    background-repeat: no-repeat;
 }
