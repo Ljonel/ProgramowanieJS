@@ -3,9 +3,6 @@ const inputValue = document.querySelector(".inputValue");
 const name = document.querySelector(".name");
 const desc = document.querySelector(".description");
 const temp = document.querySelector(".temp");
-let nameValue;
-let descValue;
-let tempValue;
 
 let notes = [];
 
@@ -16,31 +13,23 @@ inputValue.addEventListener("keyup", function (e) {
     }
 })
 
-
-
 btn.addEventListener("click", function () {
-    if (inputValue.value == '') {
+    if (inputValue.value === '') {
         alert('Insert city')
     } else {
         fetch('https://api.openweathermap.org/data/2.5/weather?q=' + inputValue.value + '&units=metric&appid=28c8b9104f413d31d48447e91346713d')
             .then(response => response.json())
             .then(data => {
-                _name = data['name'];
-                _temp = data['main']['temp'];
-                _desc = data['weather'][0]['main'];
-                //console.log(data);
                 const note = {
-                    name: 'default',
-                    temperature: 0,
-                    description: 'default'
+                    name: data['name'],
+                    temperature: data['main']['temp'],
+                    description: data['weather'][0]['main']
                 }
-                note.name = _name;
-                note.temp = Math.round(_temp);
-                note.desc = _desc;
-                notes.push(note);
-
-                localStorage.setItem('weather-el', JSON.stringify(notes))
-               showNotes(note);
+               
+               const items = JSON.parse(localStorage.getItem("weather-el")) || [];
+               const newNotes = [...items,note];
+               localStorage.setItem("weather-el", JSON.stringify(newNotes))
+               showNotes();
                 //console.log(JSON.parse(localStorage.getItem("weather-el")))
 
             })
