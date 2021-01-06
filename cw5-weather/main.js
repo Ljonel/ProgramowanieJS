@@ -3,7 +3,6 @@ const inputValue = document.querySelector(".inputValue");
 const name = document.querySelector(".name");
 const desc = document.querySelector(".description");
 const temp = document.querySelector(".temp");
-
 showNotes();
 
 
@@ -16,7 +15,7 @@ inputValue.addEventListener("keyup", function (e) {
 btn.addEventListener("click", function () {
     if (inputValue.value === '') {
         alert('Insert city')
-    } else {
+    }else {
         fetch('https://api.openweathermap.org/data/2.5/weather?q=' + inputValue.value + '&units=metric&appid=28c8b9104f413d31d48447e91346713d')
             .then(response => response.json())
             .then(data => {
@@ -25,7 +24,6 @@ btn.addEventListener("click", function () {
                     temperature: data['main']['temp'],
                     description: data['weather'][0]['main']
                 }
-
                 const items = JSON.parse(localStorage.getItem("weather-el")) || [];
                 const newNotes = [...items, note];
                 localStorage.setItem("weather-el", JSON.stringify(newNotes))
@@ -42,8 +40,8 @@ function showNotes() {
 
    if(item){
        document.querySelector("main").innerHTML =""
-    const template = document.querySelector("#template");
-
+       const template = document.querySelector("#template");
+      
     item.forEach((element) => {
         if (element.description == "Clear") {
             template.content.getElementById("bg").className = "sunny";
@@ -57,20 +55,45 @@ function showNotes() {
             template.content.getElementById("bg").className = "fog"
         }
     
-        template.content.querySelector('a').href = "https://pl.wikipedia.org/wiki/"+element.name;
+        //template.content.querySelector('a').href = "https://pl.wikipedia.org/wiki/"+element.name;
         template.content.querySelector('.name').textContent = element.name;
         template.content.querySelector('.description').textContent = element.description;
         template.content.querySelector('.temp').textContent = element.temperature + '°C';
-        
+     
+    
         const main = document.querySelector('main');
         let clone = document.importNode(template.content, true); // where true means deep copy
         main.appendChild(clone);
+
     });
 }
 }
 
 
+function refreshWeather(){
+    const item = JSON.parse(localStorage.getItem("weather-el"));
+    item.forEach((element) => {
+        const template = document.querySelector("#template");
+        fetch('https://api.openweathermap.org/data/2.5/weather?q=' + element.name + '&units=metric&appid=28c8b9104f413d31d48447e91346713d')
+        .then(response => response.json())
+        .then(data => {
+            
+               // console.log(template.content.querySelector(".name").textContent = data['main']['temp']);
+                //console.log(element.temperature =  data['main']['temp'])
+                element.temperature = data['main']['temp'];
+                element.description = data['weather'][0]['main'];
 
+                template.content.querySelector('.description').textContent = element.description;
+                template.content.querySelector('.temp').textContent = element.temperature + '°C';
+                localStorage.clear();
+                localStorage.setItem("weather-el", JSON.stringify(item))
+
+                 console.log("refresh", element)
+            })
+    })
+}
+
+//setInterval(refreshWeather, 60000)
 // const template = document.querySelector("#template");
 // if(note.desc == "Clear"){
 //     template.content.getElementById("bg").className = "sunny";

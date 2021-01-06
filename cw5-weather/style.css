@@ -85,6 +85,18 @@ a{
 }
 .fog{
     background-image: url("img/fog.png");
-   background-size: contain;
+    background-size: contain;
     background-repeat: no-repeat;
+}
+
+.X{
+    width: 100%;
+    background-color: rgba(0,0,0,0.1);
+    color: black; 
+    font-size: 20px;
+    transition: .5s;
+}
+.X:hover{
+    background: black;
+    color: white;
 }

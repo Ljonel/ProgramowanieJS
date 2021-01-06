@@ -9,20 +9,57 @@
 </head>
 
 <body>
-    <div class="wrapper">
-        <audio src="sounds/boom.wav" controls id="boom"></audio>
-        <audio src="sounds/clap.wav" controls id="clap"></audio>
-        <audio src="sounds/hihat.wav" controls id="hithat"></audio>
-        <audio src="sounds/kick.wav" controls id="kick"></audio>
-        <audio src="sounds/openhat.wav" controls></audio>
-        <audio src="sounds/ride.wav" controls></audio>
-        <audio src="sounds/snare.wav" controls></audio>
-        <audio src="sounds/tink.wav" controls></audio>
-        <audio src="sounds/tom.wav" controls></audio>
-
-        <button id="recordBtn">Record</button>
+    <main>
+        <div class="key boom">
+            <h1>A</h1>
+            <span>Boom</span>
+        </div>
+        <div class="key clap">
+            <h1>S</h1>
+            <span>Clap</span>
+        </div>
+        <div class="key hithat">
+            <h1>D</h1>
+            <span>HitHat</span>
+        </div>
+        <div class="key kick">
+            <h1>F</h1>
+            <span>Kick</span>
+        </div>
+        <div class="key openhat">
+            <h1>G</h1>
+            <span>OpenHat</span>
+        </div>
+        <div class="key ride">
+            <h1>H</h1>
+            <span>Ride</span>
+        </div>
+        <div class="key snare">
+            <h1>J</h1>
+            <span>Snare</span>
+        </div>
+        <div class="key tink">
+            <h1>K</h1>
+            <span>Tink</span>
+        </div>
+        <div class="key tom">
+            <h1>L</h1>
+            <span>Tom</span>
+        </div>
+    </main>
+    <div class="buttons">
+        <button id="recordBtn">Start recording</button>
         <button id="playBtn">Play</button>
     </div>
+    <audio src="sounds/boom.wav" controls id="boom" class="sound"></audio>
+    <audio src="sounds/clap.wav" controls id="clap" class="sound"></audio>
+    <audio src="sounds/hihat.wav" controls id="hithat" class="sound"></audio>
+    <audio src="sounds/kick.wav" controls id="kick" class="sound"></audio>
+    <audio src="sounds/openhat.wav" controls id="openhat" class="sound"></audio>
+    <audio src="sounds/ride.wav" controls id="ride" class="sound"></audio>
+    <audio src="sounds/snare.wav" controls id="snare" class="sound"></audio>
+    <audio src="sounds/tink.wav" controls id="tink" class="sound"></audio>
+    <audio src="sounds/tom.wav" controls id="tom" class="sound"></audio>
     <script src="main.js"></script>
 </body>
 

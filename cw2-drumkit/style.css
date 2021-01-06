@@ -1,0 +1,55 @@
+body{
+    box-sizing: border-box;
+    background: grey;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+h1{
+    margin: 0;
+}
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10% auto 0 auto;
+    width: 90vw;
+    height: 300px;
+}
+.key{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgb(248, 248, 160);
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    margin: 2px;
+}
+.buttons{
+    margin: 0 auto 0 auto;
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    padding: 20px;
+    margin: 10px;
+    width: 100px;
+    font-size: 15px;
+}
+.recording{
+    background: red;
+}
+.sound{
+    display: hidden;
+    opacity: 0;
+}
+.actuallSoundPlaying{
+    transition: 100ms;
+    border: 3px solid gold;
+    transform: scale(1.1);
+}
