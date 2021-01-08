@@ -1,0 +1,16 @@
+body{
+   margin: 0;
+   padding: 0; 
+   overflow: hidden;
+   background: rgb(58, 62, 133);
+}
+canvas{
+}
+
+.wins{
+  width: 100vw;
+   text-align: center;
+   font-size: 40px;
+   position: fixed;
+   color: gold;
+}
