@@ -1,0 +1,216 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    background: #a09eff;
+    font-family: 'Bebas Neue', cursive;
+    /* overflow: hidden; */
+}
+
+label {
+    font-size: 20px;
+    margin-top: 20%;
+}
+
+.note-label {
+    margin-top: 0;
+    color: white;
+    letter-spacing: 3px;
+}
+
+h1 {
+    margin-top: 10%;
+}
+
+h2 {
+    margin: 0;
+}
+
+p {
+    height: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+.panel {
+    position: sticky;
+    width: 40vw;
+    height: 100vh;
+    background: #eeaf8a;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 50px 0px rgba(42, 42, 42, .48);
+    align-items: center;
+    transition: 500ms;
+}
+
+.title {
+    width: 80%;
+    height: 5%;
+    text-align: center;
+    padding: 9px;
+    font-size: 17px;
+    border-width: 0px;
+    border-radius: 10px;
+    border-style: solid;
+    box-shadow: 0px 0px 5px 0px rgba(42, 42, 42, .48);
+    text-shadow: 0px 0px 0px rgba(42, 42, 42, .75);
+    outline: none;
+}
+
+.txt {
+    width: 80%;
+    height: 10%;
+    border-radius: 5px;
+    text-align: center;
+    padding: 9px;
+    font-size: 14px;
+    border-width: 0px;
+    border-radius: 10px;
+    border-style: solid;
+    box-shadow: 0px 0px 5px 0px rgba(42, 42, 42, .48);
+    text-shadow: 0px 0px 0px rgba(42, 42, 42, .75);
+    outline: none;
+}
+
+.addBtn {
+    margin-top: 20%;
+    width: 80%;
+    border-radius: 5px;
+    width: 50%;
+    height: 60px;
+    background: rgb(255, 199, 78);
+    outline: none;
+    border: 1px solid black;
+    transition: 300ms;
+}
+
+.addBtn:hover {
+    background: rgb(156, 130, 73);
+    cursor: pointer
+}
+
+.note-wrapper {
+    width: 100vw;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    transition: 500ms;
+}
+
+.pinnedNotes {
+    overflow: scroll;
+    overflow-x: hidden;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.unpinnedNotes {
+    overflow: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 50%;
+}
+
+.note {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.48);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 10px;
+}
+
+.icons {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+}
+
+i {
+    margin: 10px;
+    transition: 200ms;
+    cursor: pointer;
+}
+
+.gg-edit-markup {
+    margin: 0 0 5px 5px;
+}
+
+
+i:hover {
+    color: white;
+    transform: scale(1.1);
+}
+
+.color-item-wrapper {
+    display: none;
+}
+
+.redColor {
+    width: 20px;
+    height: 20px;
+    background: red;
+}
+
+.hide {
+    position: absolute;
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+    background: none;
+    margin-left: 490px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 500ms;
+    border-radius: 10px;
+}
+
+.hide:hover {
+    background: rgba(0, 0, 0, 0.308);
+}
+
+.colors {
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.233);
+    position: absolute;
+    margin-left: 200px;
+    border: 1px solid black;
+
+
+}
+.color{
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+#ff7b2e{
+    background: #ff7b2e;
+
+}
+#ccca42{
+    background: #ccca42;
+
+ }
+#a579b6{
+    background: #a579b6;
+
+ }
+#defaultColor{
+    background: #ffbc95;
+ }
